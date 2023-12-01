@@ -1,4 +1,4 @@
-package trebuchet
+package part02
 
 import (
 	"strings"
