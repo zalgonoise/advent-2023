@@ -1,9 +1,9 @@
-package trebuchet
+package part01
 
 import (
 	"testing"
 
-	"github.com/zalgonoise/x/advent-2023/01/day01"
+	"github.com/zalgonoise/advent-2023/day01"
 )
 
 func TestTrebuchet(t *testing.T) {
