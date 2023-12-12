@@ -19,6 +19,7 @@ import (
 	"github.com/zalgonoise/advent-2023/cmd/aoc/day09"
 	"github.com/zalgonoise/advent-2023/cmd/aoc/day10"
 	"github.com/zalgonoise/advent-2023/cmd/aoc/day11"
+	"github.com/zalgonoise/advent-2023/cmd/aoc/day12"
 )
 
 var (
@@ -76,6 +77,8 @@ func run(logger *slog.Logger) (int, error) {
 		return day10.Exec(ctx, logger, os.Args[3:])
 	case 11:
 		return day11.Exec(ctx, logger, os.Args[3:])
+	case 12:
+		return day12.Exec(ctx, logger, os.Args[3:])
 	default:
 		return 1, fmt.Errorf("%w: %d", errUnsupportedDay, *day)
 	}
