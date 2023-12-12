@@ -15,11 +15,15 @@ type Set struct {
 }
 
 func Sum(sets []Set) int {
-	sum := 0
-	cache := map[string]int{}
+	var (
+		sum   int
+		cache = map[string]int{}
+	)
+
 	for i := range sets {
 		sum += explore(sets[i].items, sets[i].combos, -1, cache)
 	}
+
 	return sum
 }
 
