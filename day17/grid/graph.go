@@ -54,7 +54,7 @@ type context struct {
 	streak int
 }
 
-func AStar(g Graph[int], minSteps int, maxSteps int) int {
+func AStar[T Numeric](g Graph[T], minSteps int, maxSteps int) int {
 	var (
 		startCtx = context{
 			coord:  g.Head,
@@ -98,7 +98,7 @@ func AStar(g Graph[int], minSteps int, maxSteps int) int {
 				streak: streak,
 			}
 
-			nextLoss := curLoss + g.Map.Items[edges[i]]
+			nextLoss := curLoss + int(g.Map.Items[edges[i]])
 			if loss, ok := heatLoss[nextCtx]; ok && nextLoss >= loss {
 				continue
 			}
