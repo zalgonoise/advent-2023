@@ -22,35 +22,35 @@ func NewDFS[T comparable]() *DFS[T] {
 	}
 }
 
-func (b *DFS[T]) Run(g graph[T]) T {
+func (d *DFS[T]) Run(g graph[T]) T {
 	root := g.Root()
-	b.Queue = append(b.Queue, root)
-	b.Len[root] = 0
+	d.Queue = append(d.Queue, root)
+	d.Len[root] = 0
 
-	for len(b.Queue) > 0 {
-		s := b.Queue[len(b.Queue)-1]
-		b.Queue = b.Queue[:len(b.Queue)-1]
-		d := b.Len[s]
+	for len(d.Queue) > 0 {
+		s := d.Queue[len(d.Queue)-1]
+		d.Queue = d.Queue[:len(d.Queue)-1]
+		n := d.Len[s]
 
-		if _, ok := b.Cache[s]; ok {
+		if _, ok := d.Cache[s]; ok {
 			continue
 		}
 
-		b.Cache[s] = struct{}{}
+		d.Cache[s] = struct{}{}
 
 		edges := g.Edges(s)
 		for _, edge := range edges {
-			if _, ok := b.Cache[edge]; ok {
+			if _, ok := d.Cache[edge]; ok {
 				continue
 			}
 
-			b.Len[edge] = d + 1
+			d.Len[edge] = n + 1
 
 			if g.IsLast(edge) {
 				return edge
 			}
 
-			b.Queue = append(b.Queue, edge)
+			d.Queue = append(d.Queue, edge)
 		}
 	}
 
