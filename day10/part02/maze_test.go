@@ -57,6 +57,16 @@ func TestEnclosedTiles(t *testing.T) {
 			wants: 601,
 		},
 		{
+			name: "Example/0",
+			input: `.....
+.S-7.
+.|.|.
+.L-J.
+.....
+`,
+			wants: 1,
+		},
+		{
 			name: "Example/1",
 			input: `...........
 .S-------7.
